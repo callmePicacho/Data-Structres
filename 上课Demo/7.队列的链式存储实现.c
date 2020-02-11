@@ -7,16 +7,16 @@ struct Node{
 	struct Node *Next;
 };
 struct QNode{
-	struct Node *rear;    // Ö¸Ïò¶ÓÎ²½áµã 
-	struct Node *front;   // Ö¸Ïò¶ÓÍ·½áµã 
+	struct Node *rear;    // æŒ‡å‘é˜Ÿå°¾ç»“ç‚¹ 
+	struct Node *front;   // æŒ‡å‘é˜Ÿå¤´ç»“ç‚¹ 
 };
 
-Queue CreateQueue();  // ³õÊ¼»¯¶ÓÁÐ 
-void AddQ(Queue Q,ElementType item);  //  Èë¶Ó
-ElementType DeleteQ(Queue Q);  // ³ö¶Ó 
-int IsEmpty(Queue Q); // ÅÐ¶Ï¶ÓÁÐÊÇ·ñÎª¿Õ 
+Queue CreateQueue();  // åˆå§‹åŒ–é˜Ÿåˆ— 
+void AddQ(Queue Q,ElementType item);  //  å…¥é˜Ÿ
+ElementType DeleteQ(Queue Q);  // å‡ºé˜Ÿ 
+int IsEmpty(Queue Q); // åˆ¤æ–­é˜Ÿåˆ—æ˜¯å¦ä¸ºç©º 
 
-// ³õÊ¼»¯ 
+// åˆå§‹åŒ– 
 Queue CreateQueue(){
 	Queue Q;
 	Q = (Queue)malloc(sizeof(struct QNode));
@@ -25,36 +25,36 @@ Queue CreateQueue(){
 	return Q;
 }
 
-// ÊÇ·ñÎª¿Õ 
+// æ˜¯å¦ä¸ºç©º 
 int IsEmpty(Queue Q){
 	return (Q->front == NULL);
 }
 
-// Èë¶Ó
+// å…¥é˜Ÿ
 void AddQ(Queue Q,ElementType item){
 	struct Node *node;
 	node = (struct Node *)malloc(sizeof(struct Node));
 	node->Data = item;
 	node->Next = NULL;
-	if(Q->rear==NULL){  //´ËÊ±¶ÓÁÐ¿Õ 
+	if(Q->rear==NULL){  //æ­¤æ—¶é˜Ÿåˆ—ç©º 
 		Q->rear = node;
 		Q->front = node;
-	}else{ //²»Îª¿Õ 
-		Q->rear->Next = node;  // ½«½áµãÈë¶Ó 
-		Q->rear = node;   // rear ÈÔÈ»±£³Ö×îºó 
+	}else{ //ä¸ä¸ºç©º 
+		Q->rear->Next = node;  // å°†ç»“ç‚¹å…¥é˜Ÿ 
+		Q->rear = node;   // rear ä»ç„¶ä¿æŒæœ€åŽ 
 	}
 } 
 
-// ³ö¶Ó
+// å‡ºé˜Ÿ
 ElementType DeleteQ(Queue Q){
 	struct Node *FrontCell;
 	ElementType FrontElem;
 	if(IsEmpty(Q)){
-		printf("¶ÓÁÐ¿Õ");
+		printf("é˜Ÿåˆ—ç©º");
 		return 0;
 	}
 	FrontCell = Q->front;
-	if(Q->front == Q->rear){ // ¶ÓÁÐÖÐÖ»ÓÐÒ»¸öÔªËØ 
+	if(Q->front == Q->rear){ // é˜Ÿåˆ—ä¸­åªæœ‰ä¸€ä¸ªå…ƒç´  
 		Q->front = Q->rear = NULL; 
 	}else{
 		Q->front = Q->front->Next;
@@ -67,15 +67,15 @@ ElementType DeleteQ(Queue Q){
 int main(){
 	Queue Q;
 	Q = CreateQueue();
-	printf("Èë¶Ó5\n"); 
+	printf("å…¥é˜Ÿ5\n"); 
 	AddQ(Q,5);
-	printf("Èë¶Ó4\n"); 
+	printf("å…¥é˜Ÿ4\n"); 
 	AddQ(Q,4);
-	printf("Èë¶Ó4\n"); 
+	printf("å…¥é˜Ÿ3\n"); 
 	AddQ(Q,3);
-	printf("³ö¶Ó%d\n",DeleteQ(Q));
-	printf("³ö¶Ó%d\n",DeleteQ(Q));
-	printf("³ö¶Ó%d\n",DeleteQ(Q));
+	printf("å‡ºé˜Ÿ%d\n",DeleteQ(Q));
+	printf("å‡ºé˜Ÿ%d\n",DeleteQ(Q));
+	printf("å‡ºé˜Ÿ%d\n",DeleteQ(Q));
 	printf("%d\n",DeleteQ(Q));
 	return 0;
 } 
