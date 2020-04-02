@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "stdafx.h"
+#include<stdlib.h>
 
 #define MAXSIZE 10
 #define NotFound 0
@@ -7,39 +7,53 @@ typedef int ElementType;
 
 typedef int Position;
 typedef struct LNode *List;
-struct LNode {
-    ElementType Data[MAXSIZE];
-    Position Last; /* ±£¥Êœﬂ–‘±Ì÷–◊Ó∫Û“ª∏ˆ‘™ÀÿµƒŒª÷√ */
+struct LNode
+{
+	ElementType Data[MAXSIZE];
+	Position Last;/* ‰øùÂ≠òÁ∫øÊÄßË°®‰∏≠ÊúÄÂêé‰∏Ä‰∏™ÂÖÉÁ¥†ÁöÑ‰ΩçÁΩÆ */
 };
 
-Position BinarySearch( List L, ElementType X );
+List CreatList();//ÂàùÂßãÂåñÈìæË°®
+Position BinarySearch(List L, ElementType X);
 
-int main()
+List CreatList()
 {
-    List L;
-    ElementType X;
-    Position P;
-
-    L->Data = int[]{1,3,5};
-    L->Last = 3;
-    scanf("%d", &X);
-    P = BinarySearch( L, X );
-    printf("%d\n", P);
-
-    return 0;
+	List L;
+	L = (List)malloc(sizeof(struct LNode));
+	L->Last = NULL;
+	return L;
 }
 
-Position BinarySearch( List L, ElementType X ){
+Position BinarySearch(List L, ElementType X)
+{
 	ElementType left = 1;
 	ElementType right = L->Last;
-	while(left<right){
-		ElementType center = (left+right)/2;  //œ»’“÷–º‰÷µ 
-		if(L->Data[center] < X){     //±»÷–º‰÷µ¥Û£¨X ‘⁄”“∞Î±ﬂ 
-			left = center+1;
-		}else if(X < L->Data[center]){   //±»÷–º‰÷µ–°£¨X ‘⁄◊Û∞Î±ﬂ 
-			right = center-1;
-		}else  //’“µΩ¡À£¨÷±Ω”∑µªÿ 
+	while (left < right)
+	{
+		ElementType center = (left + right) / 2;
+		if (L->Data[center] < X)
+			left = center + 1;
+		else if (X < L->Data[center])
+			right = center - 1;
+		else
 			return center;
 	}
 	return NotFound;
-} 
+}
+
+int main()
+{
+	List L;
+	ElementType X;
+	Position P;
+
+	L = CreatList();
+	for (int i = 1; i < 4; i++)
+		L->Data[i] = 2 * i - 1;
+	L->Last = 3;
+	scanf("%d", &X);
+	P = BinarySearch(L, X);
+	printf("%d\n", P);
+
+    return 0;
+}
