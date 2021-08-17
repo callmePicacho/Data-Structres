@@ -5,6 +5,8 @@
 
 [![Stargazers over time](https://starchart.cc/callmePicacho/Data-Structres.svg)](https://starchart.cc/callmePicacho/Data-Structres)
 
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=callmePicacho)](https://github.com/anuraghazra/github-readme-stats)
+
 
 
 ### 前言
