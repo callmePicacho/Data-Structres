@@ -5,9 +5,6 @@
 
 [![Stargazers over time](https://starchart.cc/callmePicacho/Data-Structres.svg)](https://starchart.cc/callmePicacho/Data-Structres)
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=callmePicacho)](https://github.com/anuraghazra/github-readme-stats)
-
-
 
 ### 前言
 中国大学MOOC上浙大的《数据结构》广受好评，原因有二，一是基础，简单易懂，老师讲得也清楚，另一大优点就是配套的每周相应知识点的编程题了，有难有易，容易题帮助巩固知识点，难题开阔视野。
